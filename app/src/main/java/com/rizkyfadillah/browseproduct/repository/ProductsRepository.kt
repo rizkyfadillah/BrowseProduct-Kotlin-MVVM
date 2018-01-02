@@ -10,8 +10,8 @@ import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 
 /**
- * Created by Rizky on 26/12/17.
- */
+* Created by Rizky on 26/12/17.
+*/
 
 class ProductsRepository(val productService: ProductService) {
 

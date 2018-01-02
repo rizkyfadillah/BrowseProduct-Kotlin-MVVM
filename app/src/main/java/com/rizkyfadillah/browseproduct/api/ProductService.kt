@@ -11,8 +11,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * Created by Rizky on 26/12/17.
- */
+* Created by Rizky on 26/12/17.
+*/
 
 interface ProductService {
 

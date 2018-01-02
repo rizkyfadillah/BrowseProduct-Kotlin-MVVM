@@ -6,8 +6,8 @@ import com.rizkyfadillah.browseproduct.repository.ProductsRepository
 import io.reactivex.Observable
 
 /**
- * Created by Rizky on 26/12/17.
- */
+* Created by Rizky on 26/12/17.
+*/
 
 class ProductsViewModel(val productsRepository: ProductsRepository) {
 

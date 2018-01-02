@@ -12,16 +12,16 @@ import com.rizkyfadillah.browseproduct.model.Product
 import com.squareup.picasso.Picasso
 
 /**
- * Created by Rizky on 30/12/17.
- */
+* Created by Rizky on 30/12/17.
+*/
 
 class ProductAdapter(private val productModelList: List<Product>) : RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+
+    private var context: Context? = null
 
     override fun getItemCount(): Int {
         return productModelList.size
     }
-
-    private var context: Context? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         context = parent.context
