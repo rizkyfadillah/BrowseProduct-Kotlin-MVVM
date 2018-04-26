@@ -5,6 +5,6 @@ package com.rizkyfadillah.browseproduct
  */
 
 object Constants {
-    val BASE_URL = "https://api.themoviedb.org"
+    val BASE_URL_MOVIE_DB = "https://api.themoviedb.org"
     val BASE_URL_ACE = "http://ace.tokopedia.com"
 }

@@ -1,19 +1,20 @@
-package com.rizkyfadillah.browseproduct.repository
+package com.rizkyfadillah.browseproduct.products.repository
 
-import com.rizkyfadillah.browseproduct.api.ProductService
-import com.rizkyfadillah.browseproduct.ProductResponse
-import com.rizkyfadillah.browseproduct.model.UIModel
-import com.rizkyfadillah.browseproduct.model.Product
+import com.rizkyfadillah.browseproduct.products.api.ProductService
+import com.rizkyfadillah.browseproduct.products.api.ProductResponse
+import com.rizkyfadillah.browseproduct.common.model.UIModel
+import com.rizkyfadillah.browseproduct.products.model.Product
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
 * Created by Rizky on 26/12/17.
 */
 
-class ProductsRepository(val productService: ProductService) {
+class ProductsRepository @Inject constructor(private val productService: ProductService) {
 
     fun getProducts(device: String, source: String, q: String, rows: Int, start: Int): Observable<UIModel<List<Product>>> {
         return productService.getAce(device, source, q, rows , start)

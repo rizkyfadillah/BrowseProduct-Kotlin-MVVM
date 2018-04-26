@@ -1,4 +1,4 @@
-package com.rizkyfadillah.browseproduct.model
+package com.rizkyfadillah.browseproduct.common.model
 
 /**
 * Created by Rizky on 26/12/17.

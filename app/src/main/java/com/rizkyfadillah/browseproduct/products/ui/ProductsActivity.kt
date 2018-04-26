@@ -1,23 +1,27 @@
-package com.rizkyfadillah.browseproduct.products
+package com.rizkyfadillah.browseproduct.products.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.EditText
 import com.jakewharton.rxbinding2.widget.RxTextView
-import com.rizkyfadillah.browseproduct.api.ProductService
+import com.rizkyfadillah.browseproduct.BrowseProductApp
 import com.rizkyfadillah.browseproduct.R
-import com.rizkyfadillah.browseproduct.model.UIModel
-import com.rizkyfadillah.browseproduct.model.Product
-import com.rizkyfadillah.browseproduct.repository.ProductsRepository
+import com.rizkyfadillah.browseproduct.products.model.Product
+import com.rizkyfadillah.browseproduct.common.model.UIModel
+import com.rizkyfadillah.browseproduct.products.di.ProductsModule
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class ProductsActivity : AppCompatActivity() {
 
     private val TAG = ProductsActivity::class.simpleName
+
+    @Inject
+    lateinit var productsViewModel: ProductsViewModel
 
     private val products = mutableListOf<Product>()
 
@@ -31,14 +35,12 @@ class ProductsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val aceService = ProductService.getAceService()
-        val aceRepository = ProductsRepository(aceService)
-        val productsViewModel = ProductsViewModel(aceRepository)
+        val app = application as BrowseProductApp
+        app.appComponent.plus(ProductsModule())
+                .inject(this)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerview)
-
-        recyclerView.adapter = productAdapter
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerview.adapter = productAdapter
+        recyclerview.layoutManager = GridLayoutManager(this, 2)
 
         val edittextSearch: EditText = findViewById(R.id.et_search)
 

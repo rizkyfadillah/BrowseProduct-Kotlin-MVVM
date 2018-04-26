@@ -1,4 +1,4 @@
-package com.rizkyfadillah.browseproduct.products
+package com.rizkyfadillah.browseproduct.products.ui
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.rizkyfadillah.browseproduct.R
-import com.rizkyfadillah.browseproduct.model.Product
+import com.rizkyfadillah.browseproduct.products.model.Product
 import com.squareup.picasso.Picasso
 
 /**
