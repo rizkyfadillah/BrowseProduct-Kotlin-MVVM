@@ -3,7 +3,11 @@ package com.rizkyfadillah.browseproduct.movie.common.repository
 import com.rizkyfadillah.browseproduct.common.model.UIModel
 import com.rizkyfadillah.browseproduct.movie.common.api.MovieDBService
 import com.rizkyfadillah.browseproduct.movie.common.api.MovieEntity
+import com.rizkyfadillah.browseproduct.movie.common.api.ReviewEntity
+import com.rizkyfadillah.browseproduct.movie.common.api.VideoEntity
 import com.rizkyfadillah.browseproduct.movie.common.model.Movie
+import com.rizkyfadillah.browseproduct.movie.common.model.Review
+import com.rizkyfadillah.browseproduct.movie.common.model.Video
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Function
@@ -37,6 +41,51 @@ class MovieRepository @Inject constructor(private val movieDBService: MovieDBSer
                 }
             }
             movies
+        }
+    }
+
+    fun getMovieVideos(id: String): Observable<UIModel<List<Video>>> {
+        return movieDBService.getMovieVideos(id)
+                .map {
+                    val videos = mapMovieVideos().apply(it.results)
+                    UIModel.success(videos, "success")
+                }
+                .onErrorReturn { UIModel.error(it.message) }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .startWith(UIModel.loading())
+    }
+
+    private fun mapMovieVideos(): Function<List<VideoEntity>, List<Video>> {
+        return Function {
+            val videos = mutableListOf<Video>()
+            for (videoEntity in it) {
+                with(videoEntity) {
+                    videos.add(Video(id, thumbnail, title))
+                }
+            }
+            videos
+        }
+    }
+
+    fun getMovieReviews(id: String): Observable<UIModel<List<Review>>> {
+        return movieDBService.getMovieReviews(id)
+                .map {
+                    val reviews = mapMovieReviews().apply(it.results)
+                    UIModel.success(reviews, "success")
+                }
+                .onErrorReturn { UIModel.error(it.message) }
+    }
+
+    private fun mapMovieReviews(): Function<List<ReviewEntity>, List<Review>> {
+        return Function {
+            val reviews = mutableListOf<Review>()
+            for (reviewEntity in it) {
+                with(reviewEntity) {
+                    reviews.add(Review(author, content))
+                }
+            }
+            reviews
         }
     }
 

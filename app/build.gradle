@@ -51,8 +51,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
 
-    implementation 'com.google.dagger:dagger:2.13'
-    kapt 'com.google.dagger:dagger-compiler:2.13'
+    implementation 'com.google.dagger:dagger:2.15'
+    kapt 'com.google.dagger:dagger-compiler:2.15'
 
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
@@ -60,7 +60,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core:2.13.0"
     testImplementation "com.nhaarman:mockito-kotlin:1.5.0"
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile "org.jetbrains.kotlin:kotlin-reflect:1.2.30"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.2.41"
 }

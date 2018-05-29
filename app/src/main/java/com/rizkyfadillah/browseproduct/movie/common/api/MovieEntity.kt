@@ -9,27 +9,27 @@ import com.google.gson.annotations.SerializedName
 class MovieEntity(
 
         @SerializedName("id")
-        var id: String?,
+        val id: String?,
 
         @SerializedName("original_title")
-        var originalTitle: String? = null,
+        val originalTitle: String?,
 
         @SerializedName("poster_path")
-        var posterPath: String? = null,
+        val posterPath: String?,
 
         @SerializedName("backdrop_path")
-        var backdropPath: String? = null,
+        val backdropPath: String?,
 
         @SerializedName("overview")
-        var overview: String? = null,
+        val overview: String?,
 
         @SerializedName("release_date")
-        var releaseDate: String? = null,
+        val releaseDate: String?,
 
         @SerializedName("vote_count")
-        var voteCount: Int = 0,
+        val voteCount: Int,
 
         @SerializedName("vote_average")
-        var voteAverage: Double = 0.toDouble()
+        val voteAverage: Double = 0.toDouble()
 
 )

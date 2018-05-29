@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">PopularMovies</string>
+    <string name="app_name">Popular Movies Stage 1</string>
+    <string name="release_date">Release date: %1$s</string>
+    <string name="user_rating">User Rating</string>
+    <string name="image_user_rating">Image User Rating</string>
+    <string name="poster_image">Poster Image</string>
+    <string name="backdrop_image">Backdrop Image</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="favorite">Favorite</string>
+    <string name="retry">Retry</string>
+    <string name="trailers">Trailers</string>
+    <string name="reviews">Reviews</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="no_review">No Review</string>
 </resources>
