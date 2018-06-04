@@ -3,6 +3,8 @@ package com.rizkyfadillah.browseproduct.movie.common.di
 import com.rizkyfadillah.browseproduct.Constants
 import com.rizkyfadillah.browseproduct.movie.common.api.MovieDBService
 import com.rizkyfadillah.browseproduct.movie.common.api.MovieDBServiceInterceptor
+import com.rizkyfadillah.browseproduct.movie.common.repository.MovieRepository
+import com.rizkyfadillah.browseproduct.movie.common.viewmodel.MovieViewModelFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -41,6 +43,12 @@ class MovieModule {
     @Provides
     fun provideMovieDBService(restAdapter: Retrofit): MovieDBService {
         return restAdapter.create(MovieDBService::class.java)
+    }
+
+    @MovieScope
+    @Provides
+    fun provideMovieDetailViewModelFactory(movieRepository: MovieRepository): MovieViewModelFactory {
+        return MovieViewModelFactory(movieRepository)
     }
 
 }

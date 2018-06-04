@@ -75,6 +75,9 @@ class MovieRepository @Inject constructor(private val movieDBService: MovieDBSer
                     UIModel.success(reviews, "success")
                 }
                 .onErrorReturn { UIModel.error(it.message) }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .startWith(UIModel.loading())
     }
 
     private fun mapMovieReviews(): Function<List<ReviewEntity>, List<Review>> {
