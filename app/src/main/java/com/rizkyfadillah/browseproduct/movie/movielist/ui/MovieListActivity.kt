@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
-import com.rizkyfadillah.browseproduct.BrowseProductApp
+import com.rizkyfadillah.browseproduct.MyApp
 import com.rizkyfadillah.browseproduct.R
 import com.rizkyfadillah.browseproduct.common.model.UIModel
 import com.rizkyfadillah.browseproduct.movie.common.model.Movie
@@ -34,7 +34,7 @@ class MovieListActivity: AppCompatActivity(), MovieAdapter.OnMovieItemClickListe
         recyclerview.layoutManager = GridLayoutManager(this, 2)
         recyclerview.adapter = movieAdapter
 
-        val app = application as BrowseProductApp
+        val app = application as MyApp
         app.appComponent.plus(MovieModule())
                 .inject(this)
 

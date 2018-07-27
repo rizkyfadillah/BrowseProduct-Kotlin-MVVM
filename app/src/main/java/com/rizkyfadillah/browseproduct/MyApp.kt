@@ -6,7 +6,7 @@ import com.rizkyfadillah.browseproduct.common.di.DaggerAppComponent
 /**
  * Created by Rizky on 25/01/18.
  */
-class BrowseProductApp: Application() {
+class MyApp: Application() {
 
     val appComponent by lazy {
         DaggerAppComponent.builder()
