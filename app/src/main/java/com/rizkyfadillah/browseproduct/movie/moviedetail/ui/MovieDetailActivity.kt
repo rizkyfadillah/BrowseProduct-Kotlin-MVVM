@@ -49,14 +49,14 @@ class MovieDetailActivity : AppCompatActivity() {
 
         movieDetailViewModel = ViewModelProviders.of(this, factory).get(MovieDetailViewModel::class.java)
 
-        val posterPath = intent.getStringExtra(MovieDetailFragment.EXTRA_POSTER_PATH)
-        val backdropPath = intent.getStringExtra(MovieDetailFragment.EXTRA_BACKDROP_PATH)
-        val overview = intent.getStringExtra(MovieDetailFragment.EXTRA_OVERVIEW)
-        val originalTitle = intent.getStringExtra(MovieDetailFragment.EXTRA_ORIGINAL_TITLE)
-        val releaseDate = intent.getStringExtra(MovieDetailFragment.EXTRA_RELEASE_DATE)
-        val voteAverage = intent.getDoubleExtra(MovieDetailFragment.EXTRA_VOTE_AVERAGE, 0.0)
-        val voteCount = intent.getIntExtra(MovieDetailFragment.EXTRA_VOTE_COUNT, 0)
-        val id = intent.getStringExtra(MovieDetailFragment.EXTRA_ID)
+        val posterPath = intent.getStringExtra(EXTRA_POSTER_PATH)
+        val backdropPath = intent.getStringExtra(EXTRA_BACKDROP_PATH)
+        val overview = intent.getStringExtra(EXTRA_OVERVIEW)
+        val originalTitle = intent.getStringExtra(EXTRA_ORIGINAL_TITLE)
+        val releaseDate = intent.getStringExtra(EXTRA_RELEASE_DATE)
+        val voteAverage = intent.getDoubleExtra(EXTRA_VOTE_AVERAGE, 0.0)
+        val voteCount = intent.getIntExtra(EXTRA_VOTE_COUNT, 0)
+        val id = intent.getStringExtra(EXTRA_ID)
 
         setActionBarTitle(originalTitle)
 
